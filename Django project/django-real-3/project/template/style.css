@@ -1,0 +1,8 @@
+.carousel-caption {
+    position: absolute;
+    right: 49%;
+    bottom: 667px;
+    left: -5%;
+    z-index: 10;
+
+}

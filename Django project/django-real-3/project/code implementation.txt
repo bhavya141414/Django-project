@@ -1,0 +1,451 @@
+Add the nav bar code in index .html in side body 
+
+# Copy nav bar code from bootstrap 4.0
+
+
+# Now inside navbar find ALL THE ahref tags 
+# And rename it with your title such as 
+
+"""
+
+<li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact Us</a>
+                </li>
+
+"""
+
+And go inside urls.py
+And add all the paths that you're going to visit
+
+
+
+""""
+# Here I've removed dropdown menu and have added a single Android mobiles 
+
+
+
+ <li class="nav-item">
+                    <a class="nav-link" href="/android">Android Mobiles</a>
+                </li>
+
+# indside urls.py 
+
+path('android', views.android, name = 'android'),
+    
+
+# Inside views.py 
+def android(request):
+    return render(request, 'android.html')
+
+
+""""
+
+## Now it's time to create a admin 
+# and make migrations 
+
+# Inside terminal write python manage.py makemigrations
+# Then python manage.py migrate
+
+# then python manage.py createsuperuser
+
+
+# Once user is created 
+your pass is 999888777
+# Your username is default
+
+
+# Now if you want to change django admin text 
+# https://books.agiliq.com/projects/django-admin-cookbook/en/latest/change_text.html
+Visit above link and follor protocols 
+
+
+
+"""
+
+Inside template create a new file base.html
+
+# aND COPy all the content of index.html into base.html
+
+# And minimize nav bar 
+
+"
+
+
+# after nav bar close write a body tag 
+
+
+
+{% block body %}
+
+
+{% endblock body %}
+
+# Then visit index.html and write above 
+# extends base.html
+
+# Create a new block body tag after extends base.html 
+
+# And then delete everything from index.html
+# Accpet the 3 tags 
+
+# Insside block body write this is my body page
+
+
+#############################################
+
+
+# Head towards all the .html pages 
+and paste this code 
+
+"""
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+This is Services page
+
+{% endblock body %}
+
+# Replace the line  "This is Services page" with your page name
+and save it 
+"""
+
+
+# Visit 
+https://getbootstrap.com/docs/4.6/components/carousel/
+# And copy 
+
+With captions
+carousel that has captions 
+
+
+## Vist index.html and paste the whole carousel code inside 
+<div class="container">
+#HERE
+</div>
+
+
+# Once copied find all the img src tags and then 
+# insdie " " add your image located inside static folder
+# with this command 
+
+/static/11D.jpg
+
+
+example 
+<img src="/static/11D.jpg" class="d-block w-100"  width = 800 height = 800 alt="...">
+
+# Mention width and height here properly and same for all images
+
+
+# Then create a style tag inside blockbody 
+# and paste this command 
+
+
+<style>
+.carousel-caption {
+    position: absolute;
+    right: 49%;
+    bottom: 667px;
+    left: -5%;
+    z-index: 10;
+
+}
+</style>
+
+# Give colors to H5 and p tag
+
+<div class="carousel-caption d-none d-md-block">
+        <h5 style = "color : rgb(231, 255, 17);" >First slide label</h5>
+        <p style = 'color : rgb(231, 255, 17)'>Some representative placeholder content for the third slide.</p>
+      </div>
+
+
+# Once coloring is given to text 
+
+visit 
+
+https://getbootstrap.com/docs/4.6/examples/album/
+
+# And pick the first 3 thumbnail by inspecting elements
+
+And # then edit the images with your choice
+
+example
+
+    <div class="album py-5 bg-light my">
+        <h5 style = "text-align:center; margin-bottom: 5%; "; >Trending phones worldwide</h5>
+        <div class="container">
+    
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img src="/static/1plus.jpg" class="d-block w-100" width=800 height=300 alt="...">
+    
+                <div class="card-body">
+                  <p class="card-text">One Plus Nord, A Powerfull 5G phone with a Affordable price.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              
+  </div>
+
+
+# Now you need to redirect the widgets to android page 
+# so remove viewbutton 
+and edit button 
+# and add this after divclass = btn-group 
+
+<a class="btn btn-primary" href="http://127.0.0.1:8000/android" role="button"> One Plus Nord</a>
+
+
+# Change this for every widget
+
+
+
+# Open contact us page 
+
+
+And add these lines 
+
+<h1 style = "text-align: center;">Contact us Page</h1>
+
+<div class="container my-4">
+
+    <center>
+        <img src="/static/ContactUS.jpg" alt="centered image" width = 800>
+    </center>
+
+</div>
+
+
+
+# now visit 
+https://getbootstrap.com/docs/4.6/components/forms/
+# and copy Form Controls
+
+# Edit the form and paste it
+
+
+<form>
+
+        
+
+        <div class="form-group">
+            <label for="name">Enter Your name</label>
+            <input type="text" class="form-control" id="name" name = 'name' placeholder="Enter your name">
+        </div>
+
+
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name = 'email'placeholder="name@example.com">
+        </div>
+
+
+        <div class="form-group">
+            <label for="phone">Enter Your name</label>
+            <input type="number" class="form-control" id="phone" name = 'phone' placeholder="Enter your phone number">
+        </div>
+        
+
+
+        <div class="form-group">
+            <label for="desc">Comment</label>
+            <textarea class="form-control" id="desc" name = 'desc' rows="3"></textarea>
+        </div>
+
+        <button class = "btn btn-primary" type = "submit"> Submit</button>
+
+
+# After copying and editing form 
+
+# head towards form starting tag 
+and write 
+
+<form method = 'post' action = '/contact'>
+# and {% csrf_token %}
+
+
+
+# It should look like this ###################
+
+<div class="container mb-3">
+    <form method = 'post' action = '/contact'>
+	{% csrf_token %}
+
+
+
+
+        <div class="form-group">
+            <label for="name">Enter Your name</label>
+            <input type="text" class="form-control" id="name" name = 'name' placeholder="Enter your name">
+        </div>
+
+
+
+######################################
+
+# Now if you write content and submit it won't go there 
+
+# So you need to write login in views.py 
+# inside contact.html
+
+# It's time to create a model 
+
+
+# Model is a object which defines our database 
+
+# So head towards models.py located at home folder
+
+type 
+class Contact(models.Model):
+    name = models.CharField(max_length= 122)
+    email = models.CharField(max_length= 122) 
+    phone = models.CharField(max_length= 12) 
+    desc = models.TextField()
+    def __str__(self):
+    return self.name
+   
+    
+     
+
+# So this are the values that will be allowed to user to type limited data
+# and this will go into database 
+of class Contact
+
+# Also  you need to type this in terminal 
+ 
+python manage.py makemigrations
+
+
+# No changes will be detected 
+
+# So visit admin.py and register your model by typing 
+
+from home.models import Contact
+# This class will be imported
+
+
+
+# Then go to apps.py copy the class name which is HomeConfig
+
+# and paste it inside 
+Settings.py 
+
+paste this -- 'home.apps.HomeConfig',
+
+
+example 
+INSTALLED_APPS = [
+    'home.apps.HomeConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
+
+# Once done now again run python manage.py makemigrations
+# Thne python manage.py migrate
+
+
+# Now head towards views.py and contact(request):
+
+# now import datetime 
+
+from datetime import datetime
+
+from home.models.import Contact
+
+# And in def(Contact)
+write this logic
+if request.method == 'POST':
+        name = request.POST.get('name') # request. post is dict # .get is method 
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        desc = request.POST.get('desc')    
+        
+        contact = Contact(name = name, email = email, phone = phone, desc = desc)
+        contact.save()
+	
+ 
+return render(request, 'contact.html')
+
+
+
+
+# django messages framework
+
+https://docs.djangoproject.com/en/3.2/ref/contrib/messages/
+
+
+
+from django.contrib.messages import constants as messages
+copy this is settings.py
+after import os
+
+
+# There are 5 types of messages in this constants
+
+messages.debug(request, '%s SQL statements were executed.' % count)
+messages.info(request, 'Three credits remain in your account.')
+messages.success(request, 'Profile details updated.')
+messages.warning(request, 'Your account expires in three days.')
+messages.error(request, 'Document deleted.')
+
+
+
+# from django.contrib import messages
+# Copy this in views.py
+
+
+messages.success(request, 'Profile details updated.')
+# paste this inside contact(request)
+# after contact.save()
+
+
+# Head towards base.html
+
+
+
+
+# Visit bootstrap alerts 
+https://getbootstrap.com/docs/4.6/components/alerts/
+
+# Find dismissal alert
+# copy it and paste it in 
+
+# Base.html 
+before block body tag paste this code
+
+
+
+ {% if messages %}
+    {% for message in messages %}
+
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+
+
+{% block body %}
+
+
+
+
+
+
+

@@ -1,0 +1,389 @@
+go to bootstrap 4 
+
+https://getbootstrap.com/docs/4.6/components/modal/
+
+Copy live demo modal
+
+# go to base.html 
+
+# And before body block paste the code 
+
+<!-- Button trigger signup modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Sign up Modal -->
+<div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="signupmodalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupmodalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+# After class = 'modal-body'
+
+visit 
+https://getbootstrap.com/docs/4.6/components/forms/
+
+# get first form 
+# and place it after 3 dots
+
+
+
+# In sign up moda 
+# change button data target = 'signup modal'
+
+# # And paste the button code inside divtag
+
+# Once the code is placed inside div tag 
+
+# Add username, name, email, phone, pass inside singup form
+
+example 
+
+
+
+  <!-- Sign up Modal -->
+    <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginmodalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+
+                    <form>
+
+                        <div class="form-group">
+                            <label for="username">UsernameName</label>
+                            <input type="text" class="form-control" id="username" name='username'>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name='name'>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="mobile">Mobileno</label>
+                            <input type="number" class="form-control" id="mobile" name='mobile'>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+
+
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+
+
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+# Copy the whole code and head towards above of sign up modal 
+# and paste the full code for login page 
+
+
+# Once pasted code # Change the data target from signupmodal to loginmodal
+
+# And remove all uncessary data such as phone email name 
+# and keep username and password
+
+
+<div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="signupmodalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupmodalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+
+                    <form>
+
+                        <div class="form-group">
+                            <label for="username">UsernameName</label>
+                            <input type="text" class="form-control" id="username" name='username'>
+                        </div>
+
+
+                        
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+
+
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+
+
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+ <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupmodal">
+                Login
+            </button>
+        </div>
+
+# after or before login  
+
+
+# Add <form action="/signup", method = 'post'>
+# inside signup starting form value
+
+
+# Head towards path.urls and write 
+
+path('signup', views.handlesignup, name = 'handlesignup'),
+
+# go to views.py 
+
+# add def handlesignup():
+	if request.method == 'POST':
+        username = request.POST['username']
+        name = request.POST['name']
+        email = request.POST['email']
+        mobile = request.POST['mobile']
+        password = request.POST['password']
+
+
+# IMPORT 
+
+from django.contrib.auth.models import User  in views.py
+# and from django.shortcuts import render, HttpResponse, redirect # 
+
+
+
+
+
+# Inside button type = 'submit' of signup page add 
+# {% csrf_token %}
+
+
+
+
+# and after creating handles signup
+
+
+# paste this code  after password = request.POST['password']
+
+ if len(username) > 10:
+            messages.error(request, 'You cannot enter username more than 10 character')
+            return redirect('/')
+
+        if len(mobile) < 10 and len(mobile) > 12:
+            messages.error(request, 'Your Mobile number must be between 10 to 12 numbers')
+            return redirect('/')
+
+
+
+
+
+
+
+write this code to create user write it after  return redirect('/')
+
+ myuser = User.objects.create_user(username, email, password)
+        myuser.name = name
+        myuser.save()
+        messages.success(request, 'Your account is created')
+        return redirect('/')
+
+
+
+# Head back to base.html and then 
+# add  required to the end of all the names 
+
+# example 
+
+<div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name='username'  required>
+                        </div>
+
+
+
+
+# In the end your signup function must look like this
+
+
+
+def handlesignup(request):
+    
+    if request.method == 'POST':
+        username = request.POST['username']
+        name = request.POST['name']
+        email = request.POST['email']
+        mobile = request.POST['mobile']
+        password = request.POST['password']
+
+
+    # Check for errorneous inputs
+
+        # username must be under 10 characters
+        if len(username) > 10:
+            messages.error(request, 'You cannot enter username more than 10 character')
+            return redirect('/')
+
+
+        #  username must be alphanumeric
+
+
+        elif not username.isalnum():
+            messages.error(request, 'Username must contain only alphanumeric values')
+            return redirect('/')
+
+        # 
+
+        if len(mobile) < 10:
+            messages.error(request, 'Your Mobile number must be between 10 to 12 numbers')
+            return redirect('/')
+
+        
+    # Create user
+
+        myuser = User.objects.create_user(username, email, password)
+        myuser.name = name
+        myuser.save()
+        messages.success(request, 'Your account is created')
+        return redirect('/')
+
+    else:
+        return HttpResponse('404-Not found')
+
+
+
+# Create login logout 
+
+# head towards urls.py 
+
+
+  path('logout', views.handlesLogout, name = 'handlesLogout'),
+  path('login', views.handlesLogin, name = 'handlesLogin'),
+    
+
+
+# go to views.py 
+
+def handleLogin(request):
+	if request.method == 'POST':
+        logusername = request.POST['logusername']
+        logpassword = request.POST['logpassword']
+
+        user = authenticate(username = logusername, password = logpassword)
+
+        if user is not None:
+            login(request, user)
+            messages.success(request,'You\'ve logged in Successfully')
+            return redirect('/')
+ 
+        else:
+            messages.success(request, 'Invalid Credentials')
+            return redirect('/')
+    
+    
+
+
+
+def handlesLogout(request):
+    logout(request)
+    messages.success(request, 'Successfully logged out')
+    return redirect('/')
+    
+# Now changing login and logout if user is logged or logged out
+
+# visit base.html 
+
+befor login and sign up button 
+
+
+ <form class="form-inline my-2 my-lg-0 mr-2">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            {% if user.is_authenticated%}
+            <ul class="navbar-nav ml-auto">
+            <li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Welcome {{request.user}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/logout">Logout</a>
+          
+        </div>
+
+            </li>
+            </ul>
+            
+           
+            {% else %}

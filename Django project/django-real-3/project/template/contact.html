@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+
+<h1 style="text-align: center;">Contact us Page</h1>
+
+<div class="container my-4">
+
+    <center>
+        <img src="/static/ContactUS.jpg" alt="centered image" width=800>
+    </center>
+
+</div>
+
+<div class="container mb-3">
+    <form method = "POST" action = '/contact'>
+    {% csrf_token %}
+
+
+        <div class="form-group">
+            <label for="name">Enter Your name</label>
+            <input type="text" class="form-control" id="name" name = 'name' placeholder="Enter your name">
+        </div>
+
+
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name = 'email'placeholder="name@example.com">
+        </div>
+
+
+        <div class="form-group">
+            <label for="phone">PhoneNumber</label>
+            <input type="number" class="form-control" id="phone" name = 'phone' placeholder="Enter your phone number">
+        </div>
+        
+
+
+        <div class="form-group">
+            <label for="desc">desc</label>
+            <textarea class="form-control" id="desc" name = 'desc' rows="3"></textarea>
+        </div>
+
+        <button class = "btn btn-primary" type = "submit"> Submit</button>
+
+
+    </form>
+
+</div>
+
+{% endblock body %}
